@@ -36,10 +36,11 @@ Per inviare una richiesta con autenticazione, bisogna utilizzare un "authorizati
 
 **Content-Type: application/json**: indica di interpretare il contentuto del corpo della richiesta come json.
 
-Utilizzando un Authorization header possiamo inviare informazioni per identificare l'utente nel sistema. Come visto in teoria ci sono diversi tipi di autorizzazione.
-* basic auth: inviamo username e password separati da ":" in base64;
-* oauth: inviamo un token che contiene informazioni utili a rappresentare l'utente nel sistema;
+Utilizzando un Authorization header possiamo inviare informazioni per identificare l'utente nel sistema. Come visto in teoria ci sono diversi tipi di autorizzazione. Prova ad utilizzare la basic auth: inviamo username e password separati da ":" in base64;
 
 Lato server, bisogna validare la richiesta verificando prima che le credenziali siano corrette e poi eseguire l'operazione. Se la convalida non va a buon fine, è buona norma ritornare "401 - Unauthorized". 
 
 Domanda: come facciamo a passare alla callback l'id dell'utente che viene inviato dal client?
+
+## Esercizio 3.1
+Implementare un webhook per notificare un client che si sottoscrive per la ricezione di messaggi.
