@@ -7,9 +7,11 @@
 
 from flask import Flask, request
 import user
+from flask_cors import CORS
 
 # viene creata l'applicazione con il nome del modulo corrente.
 app = Flask(__name__)
+CORS(app)
 
 # getErrorCode è una funzione di utilità che mappa i valori ritornati dal modulo database con quelli del
 # protocollo HTTP in caso di errore. 
@@ -33,6 +35,7 @@ def getErrorCode(result: user.Result)->int:
 @app.route('/user', methods=['POST'])
 def createUser():
     data = request.get_json()
+    print(request.headers)
     name = data['name']
     surname = data['surname']
     email = data['email']

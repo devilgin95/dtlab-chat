@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Registrati</title>
+  </head>
+  <body style="background-color:#272c33">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: blueviolet;">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-sm-3" href="#" style="color: rgb(251, 240, 255);">Benvenuto nella DTLAB-CHAT</a>
+        <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
+          <div class="navbar-nav" >
+            <a class="nav-link active" style="color: aliceblue;" aria-current="page" href="#">Registrati per comincare a chattare con noi!</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <form id="registrationForm" style="color: white;">
+        <div class="mx-lg-5 mt-sm-3" >
+            <label for="nameInput" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp">
+          </div>
+          <div class="mx-lg-5 my-sm-3">
+            <label for="surnameInput" class="form-label">Cognome</label>
+            <input type="text" class="form-control" id="surnameInput" aria-describedby="surnameHelp">
+          </div>
+        <div class="mx-lg-5 my-sm-3">
+            <label for="emailInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+        </div>
+        <div class="mx-lg-5 my-sm-3">
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput">
+            <div id="passwordHelpBlock" class="form-text">
+                La tua password deve contenere tra gli 8 e i 20 caratteri alfanumerici e non deve contenere spazi, caratteri speciali e emoji.
+              </div>
+        </div>
+        <div class="mx-lg-5 my-sm-3">
+            <label for="passwordConfirmInput" class="form-label">Ripeti password</label>
+            <input type="password" class="form-control" id="passwordConfirmInput">
+        </div>
+        <div>
+            <div class="d-grid mx-sm-5 justify-content-md-end">
+                <button class="btn" style="background-color: blueviolet; color: white;" type="submit">Conferma</button>
+            </div>
+        </div>
+      </form>
+      <script>
+        registrationForm.onsubmit = async (e) => {
+          e.preventDefault();
+      
+            const body =  {
+              name: registrationForm.elements['nameInput'].value,
+              surname: registrationForm.elements['surnameInput'].value,
+              email: registrationForm.elements['emailInput'].value,
+              password: registrationForm.elements['passwordInput'].value
+            };  
+            
+            const headers = new Headers({
+              "Content-Type": "application/json",
+              "Content-Length": JSON.stringify(body).length
+            })
+            
+           const response = await fetch('http://localhost:5000/user', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(body),
+          });
+    
+        };
+      </script>
+  </body>
+</html>
