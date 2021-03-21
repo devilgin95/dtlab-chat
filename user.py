@@ -30,7 +30,7 @@ class Result(Enum):
 def findUserByEmail(email: str) -> dict:
     for user in users:
         if user['email'] == email:
-            return u
+            return user
     return None
 
 #Metodo di utilità per cercare un utente dato in ingresso un ID. Se non esiste viene ritornato None
@@ -38,7 +38,7 @@ def findUserByID(id: str) -> dict:
     bID = uuid.UUID(id)
     for user in users:
         if user['id'] == bID:
-            return u
+            return user
     return None
 
 # SaveUser memorizza un utente nel sistema dopo la procedura di signin degli utenti. 
