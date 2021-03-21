@@ -35,7 +35,6 @@ def getErrorCode(result: user.Result)->int:
 @app.route('/user', methods=['POST'])
 def createUser():
     data = request.get_json()
-    print(request.headers)
     name = data['name']
     surname = data['surname']
     email = data['email']
