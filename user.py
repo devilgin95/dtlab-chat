@@ -38,7 +38,7 @@ def findUserByID(id: str) -> dict:
     bID = uuid.UUID(id)
     for user in users:
         if user['id'] == bID:
-            return u
+            return user
     return None
 
 # SaveUser memorizza un utente nel sistema dopo la procedura di signin degli utenti. 
