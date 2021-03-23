@@ -1,5 +1,4 @@
 # Questo modulo implementa una semplice versione di un database per gli utenti in memoria.
-# Gli utenti sono memorizzati in una lista per semplicità.
 
 import uuid
 import bcrypt
@@ -71,9 +70,11 @@ def SaveUser(name: str, surname: str, email: str, password: str) -> (Result, dic
 
 
 # La funzione login controlla che esiste un utente con l'email inserita ed usa la funzione bcrypt.checkpw per controllare che la password sia corretta. 
-def Login(email: str, password: str)-> Result:
+def Login(email: str, password: str)-> (Result, dict):
     u = findUserByEmail(email)
     if u is not None and bcrypt.checkpw(password.encode('utf8'), u['password']):
-        return Result.OK
+        res = u.copy()
+        res ['password'] = ''
+        return Result.OK, res
     else:
-        return Result.NOT_AUTHORIZED
+        return Result.NOT_AUTHORIZED, None

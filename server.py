@@ -1,9 +1,6 @@
 # Questo modulo utilizza Flask per realizzare un web server. L'applicazione può essere eseguita in vari modi
-# FLASK_APP=server.py FLASK_ENV=development flask run #LINUX
-# set FLASK_APP=server.py 
-# set FLASK_ENV=development 
-# flask run #WINDOWS
-# python server.py
+# FLASK_APP=server.py FLASK_ENV=development flask run
+# python server.py se aggiungiamo a questo file app.run()
 
 from flask import Flask, request
 import user
@@ -11,7 +8,7 @@ import user
 # viene creata l'applicazione con il nome del modulo corrente.
 app = Flask(__name__)
 
-# getErrorCode è una funzione di utilità che mappa i valori ritornati dal modulo database con quelli del
+# getErrorCode è una funzione di utilità che mappa i valori ritornati dal modulo user con quelli del
 # protocollo HTTP in caso di errore. 
 # 404 - Not Found: una risorsa non è stata trovata sul server;
 # 403 - Forbidden: accesso negato;
