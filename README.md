@@ -9,16 +9,18 @@ di una web chat. Sono realizzate le seguenti funzionalità:
 Documentazione del framework Flask: https://flask.palletsprojects.com/en/1.1.x/
 
 ## ESERCIZIO 1 (15 minuti)
-In questo esercizio, lavoreremo sul modulo user aggiungendo la funzionalità di login e memorizzando i file su testo.
+In questo esercizio, lavoreremo sul modulo user aggiungendo la funzionalità di login.
 
 ### ESERCIZIO 1.1
-Creare una route '/login' che consenta agli utenti di effettuare il login con la fuzione Login del modulo user;
+Creare una route '/login' che consenta agli utenti di effettuare il login con la funzione Login del modulo user.
+
+#### HINT: si tratta di una funzione simile a quella di creazione degli utenti già presente
 
 ### ESERCIZIO 1.2
 Testare le funzionalità create con Postman;
 
 ## ESERCIZIO 2 (35 minuti)
-In questo esercizio, implementeremo le due funzioni fondamentali di messaggistica: invio e ricezione dei messaggi.
+In questo esercizio, implementeremo le due funzioni fondamentali di messaggistica: invio e ricezione dei messaggi. Creeremo un modulo "message.py" che in seguito importeremo nel file server.py.
 
 ### ESERCIZIO 2.1
 Creare un modulo 'message.py' con una funzione 'SaveMessage' che memorizza un messaggio.
@@ -32,10 +34,10 @@ In particolare, un messaggio deve contenere:
 - se volessi mostrare i messaggi di una conversazione con quale ordine li mostrerei?
 Come gli utenti i messaggi devono essere salvati su file.
 
-#### DISCUSS: come gestiamo l'oggetto result? Nel codice iniziale era parte del modulo user, ma adesso anche il modulo message lo usa. Come facciamo a risolvere?
+#### DISCUSS: come gestiamo l'enumerazione Result? Nel codice iniziale era parte del modulo "user.py", ma adesso anche il modulo "message.py" lo usa. Come facciamo a risolvere?
 
 ### ESERCIZIO 2.2
-Creare una route POST "/INBOX" che consenta agli utenti di inviare i messaggi ad un altro utente;
+Creare una route POST "/inbox" che consenta agli utenti di inviare i messaggi ad un altro utente.
 
 ### ESERCIZIO 2.3
 Creare una funzione GetMessage che consente ad un utente di ricevere tutti i messaggi diretti a lui e aggiungerla in una route GET "/inbox";
@@ -96,9 +98,15 @@ Creiamo un container con il comando docker run.
 ### ESERCIZIO 4.4 
 Testiamo l'applicazione da Postman.
 
+##  ESERCIZIO 5 (20 minuti)
+In questo esercizio, creeremo una pipeline CI/CD utilizzando Jenkins.
+
+### ESERCIZIO 5.1
+In maniera del tutto analoga al laboratorio presente su netacad.com, creare una propria repository del codice su Github, configurare un job su Jenkins che ad ogni push esegue un rebuild dell'immagine Docker.
+
 ## EXTRA
 Salvare su file gli utenti e i messaggi per avere uno storage anche non volatile.
 
-#### WARNING: la creazione di un Docker container abilita la creazione di un layer in scrittura temporeano. Quando chiudiamo un docker container perdiamo i file creati su di esso. Per rendere persistenti i progressi fatti da un Docker container, deve essere utilizzato un Docker Volume che esula dagli obiettivi del corso!
+#### WARNING: la creazione di un Docker container abilita la creazione di un layer in scrittura temporeano. Quando fermiamo un Docker Container perdiamo i file creati su di esso. Per rendere persistenti i progressi fatti da un Docker container, deve essere utilizzato un Docker Volume che esula dagli obiettivi del corso!
 
 
