@@ -15,6 +15,7 @@ In questo esercizio, lavoreremo sul modulo user aggiungendo la funzionalità di 
 In questa prima parte, configuriamo l'ambiente di sviluppo. In particolare:
 * creare virtualenv;
 * installare le dipendenze da requirements.txt;
+* testare che il codice funzioni con Postman;
 
 ### ESERCIZIO 1.2
 Creare una route '/login' che consenta agli utenti di effettuare il login con la funzione Login del modulo user.
@@ -54,7 +55,7 @@ Come faccio a capire chi sta inviando la richiesta? Mi serve il suo ID per inser
 ### ESERCIZIO 2.4
 Testare la funzionalità creata con Postman.
 
-## ESERCIZIO 3 (20 minuti)
+## ESERCIZIO 3 (25 minuti)
 In questo esercizio, ci occupiamo di creare la funzione "Elimina account". Per questioni di sicurezza, ogni utente può eliminare SOLO il proprio account. Per fare ciò, dobbiamo inviare una richiesta autenticata: ovvero inserire nell'header un campo Authorization che contenga le informazioni che ci assicurano che chi sta facendo la richiesta è autorizzato.
 
 ### ESERCIZIO 3.1
