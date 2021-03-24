@@ -1,5 +1,5 @@
 # DTLAB-CHAT
-[WEEK 3] Applicazione per le lezioni degli studenti del Cisco DTLAB 2021 sui capitoli 5-6 del corso DEVASC.
+[WEEK 3] Laboratorio per le lezioni degli studenti del Cisco DTLAB 2021 sui capitoli 5-6 del corso DEVASC.
 
 ## Descrizione
 Utilizzando il web framework Flask, i file realizzano un semplice servizio REST con storage in memoria
