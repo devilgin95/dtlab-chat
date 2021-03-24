@@ -29,12 +29,11 @@ In particolare, un messaggio deve contenere:
 - destinatario: id dell'utente a cui è destinato il messaggio;
 - contenuto: testo del messaggio;
 
-#### DISCUSS: su altre informazioni che possono servire. Ad esempio:
-- se volessi in futuro dare la possibilità di eliminare un messaggio inviato?
-- se volessi mostrare i messaggi di una conversazione con quale ordine li mostrerei?
-Come gli utenti i messaggi devono essere salvati su file.
+#### DISCUSS: altre informazioni che possono servire. Ad esempio:
+- se volessi in futuro dare la possibilità di modificare/eliminare/inoltrare un messaggio inviato, cosa mi converrebbe aggiungere?
+- se volessi mostrare i messaggi di una conversazione con quale ordine li mostrerei, cosa mi converrebbe aggiungere?
 
-#### DISCUSS: come gestiamo l'enumerazione Result? Nel codice iniziale era parte del modulo "user.py", ma adesso anche il modulo "message.py" lo usa. Come facciamo a risolvere?
+#### DISCUSS: come gestiamo l'enumerazione Result? Nel codice iniziale era parte del modulo "user.py", ma adesso anche il modulo "message.py" la usa. Come facciamo a risolvere?
 
 ### ESERCIZIO 2.2
 Creare una route POST "/inbox" che consenta agli utenti di inviare i messaggi ad un altro utente.
@@ -57,14 +56,14 @@ In questo esercizio, ci occupiamo di creare la funzione "Elimina account". Per q
 Aggiungere la route:
 - DELETE /user/<id_utente>: l'utente invia email e password per cancellare il suo account:  
 
-#### HINT 1: utilizzare la documentazione per capire come accedere all'header della richiesta ed estrarre le credenziali dalla richiesta
+#### HINT 1: utilizzare la documentazione per capire come accedere all'header della richiesta ed estrarre le credenziali dalla richiesta;
 
 Esempio
 - DELETE /user/123 -> cancella utente con ID 123;
 
 Per inviare una richiesta con autenticazione, bisogna utilizzare un "authorization header". Come abbiamo visto, gli header aggiungono ulteriori informazioni sul come trattare la richiesta; sottoforma di coppie chiave valore. Ad esempio:
 
-**Content-Type: application/json**: indica di interpretare il contentuto del corpo della richiesta come json.
+**Content-Type: application/json**: indica di interpretare il contentuto del corpo della richiesta come JSON.
 
 Utilizzando un Authorization header possiamo inviare informazioni per identificare l'utente nel sistema. Come visto in precedenza, ci sono diversi tipi di autorizzazione. Proviamo ad utilizzare la basic auth: inviamo username e password separati da ":" in base64;
 
@@ -79,21 +78,22 @@ In questo esercizio, ci occupiamo di installare l'applicazione utilizzando Docke
 ### ESERCIZIO 4.1
 Innanzitutto dobbiamo decidere quale immagine utilizzare. Ci serve un'immagine di Python 3. Scegliamola da https://hub.docker.com
 
-Se cerchiamo python e andiamo nella sezione tag, troviamo tantissime immagini Python, ognuna con versione e dimensione diversa. Proviamo a scegliere la versione 3.9.2 con dimensione minore. Questa sarà il punto di partenza del Dockerfile
+Se cerchiamo python e andiamo nella sezione tag, troviamo tantissime immagini Python, ognuna con versione e dimensione diversa. Proviamo a scegliere la versione 3.9.2 con dimensione minore. Questo sarà il punto di partenza del Dockerfile.
 
 ### ESERCIZIO 4.2
-Creiamo il Dockerfile e inseriamo come statement FROM il nome dell'immagine di scelta. 
-Scegliamo una cartella dove mettere il nostro codice con lo statement WORKDIR.
-Copiamo i file del codice e installiamo le dipendenze con pip usando lo statement RUN.
-Terminiamo il file con lo statement CMD che eseguirà l'applicazione.
+* Creiamo il Dockerfile e inseriamo come statement FROM il nome dell'immagine di scelta;
+* Scegliamo una cartella dove mettere il nostro codice con lo statement WORKDIR;
+* Copiamo i file del codice e installiamo le dipendenze con pip usando lo statement RUN;
+* Terminiamo il file con lo statement CMD che eseguirà l'applicazione;
 
 #### DISCUSS: se la creazione dell'immagine fallisse, dovremmo riscaricare tutte le dipendenze con l'esecuzione del comando RUN pip install ecc. Come possiamo fare per risparmiarci l'installazione delle dipendenze se modifichiamo il codice?
 
-### ESERCIZIO 4.3
-Creiamo l'immagine con il comando docker build.
-Creiamo un container con il comando docker run.
+#### HINT: potrebbe tornare utile la feature UnionFS su cui si basano le immagini Docker;
 
-#### HINT: non dimentichiamo di pubblicare la porta per raggiungere il container dall'esterno
+### ESERCIZIO 4.3
+Creiamo l'immagine con il comando docker build e un container con Docker Run
+
+#### WARNING: non dimentichiamo di pubblicare la porta per raggiungere il container dall'esterno.
 
 ### ESERCIZIO 4.4 
 Testiamo l'applicazione da Postman.
@@ -102,7 +102,7 @@ Testiamo l'applicazione da Postman.
 In questo esercizio, creeremo una pipeline CI/CD utilizzando Jenkins.
 
 ### ESERCIZIO 5.1
-In maniera del tutto analoga al laboratorio presente su netacad.com, creare una propria repository del codice su Github, configurare un job su Jenkins che ad ogni push esegue un rebuild dell'immagine Docker.
+In maniera del tutto analoga al laboratorio presente su netacad.com, creiamo una propria repository del codice su Github, configurare un job su Jenkins che ad ogni push esegue un rebuild dell'immagine Docker.
 
 ## EXTRA
 Salvare su file gli utenti e i messaggi per avere uno storage anche non volatile.
