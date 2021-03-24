@@ -8,10 +8,15 @@ di una web chat. Sono realizzate le seguenti funzionalità:
 - gli utenti possono inviare messaggi agli altri utenti identificati per email;
 Documentazione del framework Flask: https://flask.palletsprojects.com/en/1.1.x/
 
-## ESERCIZIO 1 (15 minuti)
+## ESERCIZIO 1 (25 minuti)
 In questo esercizio, lavoreremo sul modulo user aggiungendo la funzionalità di login.
 
 ### ESERCIZIO 1.1
+In questa prima parte, configuriamo l'ambiente di sviluppo. In particolare:
+* creare virtualenv;
+* installare le dipendenze da requirements.txt;
+
+### ESERCIZIO 1.2
 Creare una route '/login' che consenta agli utenti di effettuare il login con la funzione Login del modulo user.
 
 #### HINT: si tratta di una funzione simile a quella di creazione degli utenti già presente
